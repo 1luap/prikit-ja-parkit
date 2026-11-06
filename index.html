@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+<title>Satama</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; overscroll-behavior: none; }
+  body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #f4efe2; -webkit-user-select: none; user-select: none; }
+  canvas { position: fixed; inset: 0; width: 100%; height: 100%; touch-action: none; display: block; }
+  #ui { position: fixed; left: 0; right: 0; bottom: max(14px, env(safe-area-inset-bottom)); display: flex; justify-content: center; gap: 10px; pointer-events: none; }
+  #ui button { pointer-events: auto; }
+  button { font: inherit; font-size: 16px; color: #f4efe2; background: rgba(40, 34, 26, 0.85); border: 1px solid rgba(244, 239, 226, 0.35); border-radius: 22px; padding: 9px 16px; min-width: 44px; }
+  button:active { background: rgba(90, 76, 56, 0.9); }
+  #mode { position: fixed; top: max(12px, env(safe-area-inset-top)); left: 0; right: 0; text-align: center; font-size: 13px; opacity: 0.75; pointer-events: none; }
+  #start { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 40%, #2a3644, #07090c 70%); z-index: 5; padding: 24px; box-sizing: border-box; }
+  #start .card { max-width: 420px; text-align: center; line-height: 1.5; }
+  #start h1 { font-size: 26px; font-weight: 600; margin: 0 0 12px; letter-spacing: 0.02em; }
+  #start p { margin: 0 0 14px; font-size: 15px; opacity: 0.9; }
+  #start button { font-size: 18px; padding: 12px 30px; margin-top: 8px; background: #8a2a1f; border-color: #c8102e; }
+  #start .small { font-size: 13px; opacity: 0.65; margin-top: 18px; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="mode"></div>
+<div id="ui" class="hidden">
+  <button id="zout" aria-label="Loitonna">−</button>
+  <button id="center">Keskitä</button>
+  <button id="zin" aria-label="Lähennä">+</button>
+</div>
+<div id="start">
+  <div class="card">
+    <h1>Kiikarit satamaan</h1>
+    <p>Pidä puhelinta pystyssä edessäsi kuin kiikareita ja käänny paikallasi. Lahdella on ankkurissa laivoja.</p>
+    <p>Lähennä nipistämällä tai painikkeilla. Jos puhelin ei tunnista kääntymistä, siirrä näkymää vetämällä.</p>
+    <button id="go">Aloita</button>
+    <p class="small">Aloita kasvot kohti lahden keskiosaa. "Keskitä" palauttaa suunnan.</p>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
